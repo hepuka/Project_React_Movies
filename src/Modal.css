@@ -34,10 +34,10 @@
   gap: 30px;
 }
 
-.modalLeft img {
+img {
   width: 100%;
-
   height: 100%;
+  object-fit: fill;
 }
 
 h1,
