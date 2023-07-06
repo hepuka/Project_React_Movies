@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./Nav.css";
-import avatar from "./img/avatar.jpg";
 import nlogo from "../src/img/nlogo.png";
 
 const Nav = () => {
