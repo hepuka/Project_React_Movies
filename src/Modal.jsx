@@ -19,6 +19,9 @@ const Modal = ({ open, onClose, modalData, imagebase_URL }) => {
         </div>
 
         <div className="modalRight">
+          <p className="closeBtn" onClick={onClose}>
+            X
+          </p>
           <div className="content">
             <h1>Title: {modalData.name || modalData.title}</h1>
             <h2>
@@ -27,11 +30,6 @@ const Modal = ({ open, onClose, modalData, imagebase_URL }) => {
             <h2>Genre: {modalData.genre_ids[0]}</h2>
             <h2>Rate: {modalData.vote_average}</h2>
             <h3>Overview: {modalData.overview}</h3>
-          </div>
-          <div className="btnContainer">
-            <button className="btnPrimary" onClick={onClose}>
-              Close
-            </button>
           </div>
         </div>
       </div>

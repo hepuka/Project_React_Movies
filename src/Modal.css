@@ -6,10 +6,8 @@
 }
 
 .modalContainer {
-  max-width: 1440px;
-  width: 100%;
-  max-height: 800px;
-  height: 100%;
+  width: 60vw;
+  height: 55vh;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -17,52 +15,63 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: black;
+  background-color: aliceblue;
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
   border-radius: 8px;
 }
 
 .modalLeft {
   height: 100%;
-  width: 45%;
+  width: 35%;
 }
 .modalRight {
-  width: 55%;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 65%;
+
+  gap: 30px;
 }
 
 .modalLeft img {
   width: 100%;
-  height: 100%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  height: 100%;
+  padding: 10px;
 }
 
 h1,
 h2 {
-  color: aliceblue;
+  color: black;
   text-align: justify;
   line-height: 1.5;
 }
 
 h3 {
   text-align: justify;
-  color: aliceblue;
+  color: black;
   margin-top: 20px;
 }
 
 .content {
-  margin: 3rem auto;
+  margin: 0.6rem auto;
   padding: 1rem 2rem;
-  height: 85%;
+}
+
+.closeBtn {
+  position: fixed;
+  top: 8px;
+  right: 15px;
+  color: black;
+  cursor: pointer;
 }
 
 .btnContainer {
   padding: 1rem 1rem;
-  position: fixed;
-  bottom: 0;
+  text-align: center;
   width: 100%;
-  left: 60%;
 }
 
 .btnContainer button {
@@ -80,22 +89,57 @@ h3 {
   color: white;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1400px) {
+  .modalContainer {
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width: 1100px) {
   .modalContainer {
     flex-direction: column;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    overflow: scroll;
+    width: 90%;
+    margin-top: 27px;
   }
-  img {
+
+  .modalLeft img {
     width: 100%;
-    max-height: 70vh;
+    height: 100%;
     object-fit: cover;
   }
 
-  .heading {
-    margin: 1rem;
+  .modalLeft {
+    width: 100%;
+    margin-top: 190px;
+  }
+
+  .modalRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .content h1 {
+    font-size: 20px;
+  }
+
+  .content h2,
+  h3 {
+    font-size: 15px;
+  }
+
+  .closeBtn {
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    padding: 4px;
+    margin-right: 5px;
+    height: 25px;
+    width: 25px;
   }
 }
