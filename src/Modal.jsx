@@ -19,9 +19,11 @@ const Modal = ({ open, onClose, modalData, imagebase_URL }) => {
         </div>
 
         <div className="modalRight">
-          <p className="closeBtn" onClick={onClose}>
-            X
-          </p>
+          <div>
+            <p className="closeBtn" onClick={onClose}>
+              X
+            </p>
+          </div>
           <div className="content">
             <h1>Title: {modalData.name || modalData.title}</h1>
             <h2>
