@@ -1,0 +1,73 @@
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 15px;
+}
+
+ul li.select {
+  color: blue;
+}
+ul li {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+ul li:focus {
+  background-color: #eab126;
+}
+
+ul li:hover {
+  color: red;
+}
+
+.movie-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 50px 0;
+  padding: 0 15px;
+}
+
+.list {
+  margin-bottom: 20px;
+  width: 235px;
+  cursor: pointer;
+}
+
+.list img {
+  width: 100%;
+}
+
+p {
+  color: honeydew;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 0 5px;
+  margin-top: 15px;
+}
+
+.row {
+  color: honeydew;
+  margin: 0 auto;
+}
+.row__posters {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.row__posterLarge {
+  max-height: 350px;
+  width: 100%;
+}
