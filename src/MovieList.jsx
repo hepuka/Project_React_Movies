@@ -9,13 +9,13 @@ const MovieList = () => {
   const [openModal, setOpenModal] = useState(false);
   const [modalData, setModalData] = useState(null);
 
-  const getMovie = (fetchUrl) => {
+  function getMovie(fetchUrl) {
     fetch(fetchUrl)
       .then((res) => res.json())
       .then((data) => setMovies(data.results));
 
     console.log(movies);
-  };
+  }
 
   useEffect(() => {
     getMovie(requests.fetchNetflixOriginals);
