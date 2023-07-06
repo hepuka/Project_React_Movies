@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./MovieList.css";
 import requests from "./Request.js";
 import Modal from "./Modal";
@@ -13,13 +13,9 @@ const MovieList = () => {
     fetch(fetchUrl)
       .then((res) => res.json())
       .then((data) => setMovies(data.results));
-
-    console.log(movies);
   }
 
-  useEffect(() => {
-    getMovie(requests.fetchNetflixOriginals);
-  }, []);
+  getMovie(requests.fetchNetflixOriginals);
 
   return (
     <>
