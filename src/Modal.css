@@ -5,6 +5,10 @@
   height: 100%;
 }
 
+.openedModelStyle {
+  filter: blur(3px);
+}
+
 .modalContainer {
   width: 60vw;
   height: 55vh;

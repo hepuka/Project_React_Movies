@@ -7,7 +7,6 @@ import List from "./List";
 const MovieList = ({ openModal, setOpenModal }) => {
   const [movies, setMovies] = useState([]);
   const imagebase_URL = "https://image.tmdb.org/t/p/original/";
-  // const [openModal, setOpenModal] = useState(false);
   const [modalData, setModalData] = useState(null);
 
   const getMovie = (fetchUrl) => {
