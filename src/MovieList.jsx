@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./MovieList.css";
 import requests from "./Request.js";
 import Modal from "./Modal";
+import List from "./List";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -23,25 +24,7 @@ const MovieList = () => {
     <>
       <div className="movie-btn">
         <ul>
-          <li onClick={() => getMovie(requests.fetchNetflixOriginals)}>
-            NETFLIX ORIGINALS
-          </li>
-          <li
-            onClick={() => {
-              getMovie(requests.fetchTrending);
-            }}
-          >
-            TRENDING NOW
-          </li>
-          <li onClick={() => getMovie(requests.fetchTopRated)}>TOP RATED</li>
-
-          <li onClick={() => getMovie(requests.fetchActionMovies)}>Action</li>
-          <li onClick={() => getMovie(requests.fetchComedyMovies)}>Comedy</li>
-          <li onClick={() => getMovie(requests.fetchHorrorMovies)}>Horror</li>
-          <li onClick={() => getMovie(requests.fetchRomanceMovies)}>Romance</li>
-          <li onClick={() => getMovie(requests.fetchDocumentaries)}>
-            Documentaries
-          </li>
+          <List getMovie={getMovie} requests={requests} />
         </ul>
       </div>
 

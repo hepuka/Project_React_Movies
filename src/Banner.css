@@ -11,7 +11,7 @@
   position: absolute;
   top: 150px;
   padding: 0 20px;
-  max-width: 400px;
+  max-width: 450px;
   height: 100%;
 }
 
@@ -19,6 +19,7 @@
   font-size: 3rem;
   font-weight: 800;
   color: aliceblue;
+  text-align: left;
 }
 
 .banner__discription {
