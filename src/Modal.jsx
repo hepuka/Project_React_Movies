@@ -5,12 +5,7 @@ const Modal = ({ open, onClose, modalData, imagebase_URL }) => {
   if (!open) return null;
   return (
     <div onClick={onClose} className="overlay">
-      <div
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-        className="modalContainer"
-      >
+      <div className="modalContainer">
         <div className="modalLeft">
           <img
             src={`${imagebase_URL}${modalData.poster_path}`}
