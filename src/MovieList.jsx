@@ -1,23 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./MovieList.css";
 import requests from "./Request.js";
 import Modal from "./Modal";
 import List from "./List";
 
-const MovieList = ({ openModal, setOpenModal }) => {
-  const [movies, setMovies] = useState([]);
+const MovieList = ({ openModal, setOpenModal, movies, getMovie }) => {
   const imagebase_URL = "https://image.tmdb.org/t/p/original/";
   const [modalData, setModalData] = useState(null);
-
-  const getMovie = (fetchUrl) => {
-    fetch(fetchUrl)
-      .then((res) => res.json())
-      .then((data) => setMovies(data.results));
-  };
-
-  useEffect(() => {
-    getMovie(requests.fetchNetflixOriginals);
-  }, []);
 
   return (
     <>
