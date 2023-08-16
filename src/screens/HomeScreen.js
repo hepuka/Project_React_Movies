@@ -27,8 +27,8 @@ const HomeScreen = ({ openModal, setOpenModal }) => {
 
   return (
     <div className="homeScreen">
-      <Banner randomMovie={randomMovie} />
       <Nav />
+      <Banner randomMovie={randomMovie} />
       <MovieList
         openModal={openModal}
         setOpenModal={setOpenModal}
