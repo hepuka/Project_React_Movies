@@ -1,40 +1,73 @@
 import React from "react";
 import "./HomeScreen.css";
-import Nav from "../Nav";
-import Banner from "../Banner";
-import MovieList from "../MovieList";
+import Nav from "../components/Nav";
+import Banner from "../components/Banner";
 import { useEffect, useState } from "react";
-import requests from "../Request";
+import { arrayMovies } from "../movieDatabase";
+import Menu from "../components/List";
+import Modal from "../components/Modal";
 
-const HomeScreen = ({ openModal, setOpenModal }) => {
+const HomeScreen = ({openModal, setOpenModal }) => {
   const [movies, setMovies] = useState([]);
-  const [randomMovie, setRandomMovie] = useState();
+  const [randomMovie, setRandomMovie] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState([])
+    const imagebase_URL = "https://image.tmdb.org/t/p/original/";
+    const [modalData, setModalData] = useState(null);
+   async function getMovies() {
+        const res = await Promise.all(arrayMovies);
+        const data = await Promise.all(res.map((item)=>{
+        return item.json()
+}))
+        setMovies(data)
+        setRandomMovie(data[0].results[Math.floor(Math.random() * data[1].results.length)]);
+        setSelectedMovie(data[0].results);
+    }
 
-  const getMovie = (fetchUrl) => {
-    fetch(fetchUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setMovies(data.results);
-        setRandomMovie(
-          data.results[Math.floor(Math.random() * data.results.length)]
-        );
-      });
-  };
+    useEffect(() => {
+    getMovies();
 
-  useEffect(() => {
-    getMovie(requests.fetchNetflixOriginals);
-  }, []);
+    }, []);
+
+    const movieRender = (n) => {
+       setSelectedMovie(movies[n].results)
+    }
 
   return (
     <div className="homeScreen">
       <Nav />
       <Banner randomMovie={randomMovie} />
-      <MovieList
-        openModal={openModal}
-        setOpenModal={setOpenModal}
-        movies={movies}
-        getMovie={getMovie}
-      />
+        <Menu movieRender={movieRender}/>
+        <div className="row">
+            <div className="row__posters">
+                {selectedMovie.map((item) => (
+                    <>
+                        <div
+                            className="list"
+                            key={item.id}
+                            onClick={() => {
+                                setOpenModal(true);
+                                setModalData(item);
+                            }}
+                        >
+                            <img
+                                className="row__posterLarge"
+                                key={item.id}
+                                src={`${imagebase_URL}${item.poster_path}`}
+                                alt={item.name}
+                            />
+                            <p>{item.title || item.name}</p>
+                        </div>
+
+                        <Modal
+                            open={openModal}
+                            onClose={() => setOpenModal(false)}
+                            modalData={modalData}
+                            imagebase_URL={imagebase_URL}
+                        />
+                    </>
+                ))}
+            </div>
+        </div>
     </div>
   );
 };
